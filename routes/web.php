@@ -228,6 +228,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 |--------------------------------------------------------------------------
 */
 
+Route::get('/{artist:slug}/qr', [App\Http\Controllers\front\ArtistController::class, 'qr'])
+  ->where('artist', '[a-z0-9\-]+')
+  ->name('artist.qr');
+
 Route::get('/{artist:slug}', [App\Http\Controllers\front\ArtistController::class, 'show'])
   ->where('artist', '[a-z0-9\-]+')
   ->name('artist.show');

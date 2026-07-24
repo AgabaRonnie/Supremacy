@@ -90,6 +90,29 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  /* ---------- Artist section nav (scrollspy) ---------- */
+  var asNav = document.getElementById('asNav');
+  if (asNav) {
+    var navLinks = Array.prototype.slice.call(asNav.querySelectorAll('a[href^="#"]'));
+    var sections = navLinks
+      .map(function (a) { return document.querySelector(a.getAttribute('href')); })
+      .filter(Boolean);
+
+    function updateSpy() {
+      var offset = asNav.offsetHeight + 90;
+      var active = sections[0];
+      sections.forEach(function (sec) {
+        if (sec.getBoundingClientRect().top <= offset) active = sec;
+      });
+      navLinks.forEach(function (a) {
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + active.id);
+      });
+    }
+
+    updateSpy();
+    window.addEventListener('scroll', updateSpy, { passive: true });
+  }
+
   /* ---------- Share buttons (artist pages etc.) ---------- */
   document.querySelectorAll('[data-share-url]').forEach(function (btn) {
     btn.addEventListener('click', function () {
