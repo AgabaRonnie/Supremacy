@@ -50,13 +50,23 @@ class GenerateSitemap extends Command
         }
 
         // Artist micro-sites — the most important shareable pages
-        foreach (Artist::published()->get() as $artist) {
+        foreach (Artist::published()->with(['tracks' => fn ($q) => $q->published()])->get() as $artist) {
             $sitemap->add(
                 Url::create(url('/' . $artist->slug))
                     ->setLastModificationDate($artist->updated_at)
                     ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
                     ->setPriority(0.9)
             );
+
+            // Smart links (one per song)
+            foreach ($artist->tracks as $track) {
+                $sitemap->add(
+                    Url::create(url('/' . $artist->slug . '/' . $track->slug))
+                        ->setLastModificationDate($track->updated_at)
+                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+                        ->setPriority(0.7)
+                );
+            }
         }
 
         // News articles

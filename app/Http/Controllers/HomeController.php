@@ -62,6 +62,17 @@ class HomeController extends Controller
             'upcoming_events' => Event::where('artist_id', $artist->id)->upcoming()->count(),
         ] : [];
 
-        return view('admin.portal.home', compact('artist', 'stats'));
+        $analytics = $artist ? [
+            'views_30' => \App\Models\PageView::where('artist_id', $artist->id)->where('created_at', '>=', now()->subDays(30))->count(),
+            'views_total' => \App\Models\PageView::where('artist_id', $artist->id)->count(),
+            'clicks_30' => \App\Models\LinkClick::where('artist_id', $artist->id)->where('created_at', '>=', now()->subDays(30))->count(),
+            'top_platform' => optional(
+                \App\Models\LinkClick::where('artist_id', $artist->id)
+                    ->selectRaw('platform, COUNT(*) as c')
+                    ->groupBy('platform')->orderByDesc('c')->first()
+            )->platform,
+        ] : [];
+
+        return view('admin.portal.home', compact('artist', 'stats', 'analytics'));
     }
 }

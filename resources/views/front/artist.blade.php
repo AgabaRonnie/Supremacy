@@ -170,11 +170,12 @@
                 @endif
               </span>
               <span class="as-track__links">
+                <a href="{{ route('track.smartlink', [$artist, $track]) }}" title="Song link — share this everywhere"><i class="bi bi-link-45deg"></i> Song Link</a>
                 @if (!$track->is_free && $track->price)
                   <a href="{{ route('checkout', ['type' => 'track', 'id' => $track->id]) }}"><strong>Buy</strong></a>
                 @endif
-                @foreach (collect($track->links)->take(4) as $platform => $url)
-                  <a href="{{ $url }}" target="_blank" rel="noopener">{{ str_replace('-', ' ', $platform) }}</a>
+                @foreach (collect($track->links)->take(3) as $platform => $url)
+                  <a href="{{ route('go.track', [$track, $platform]) }}">{{ str_replace('-', ' ', $platform) }}</a>
                 @endforeach
               </span>
             </div>
@@ -188,7 +189,7 @@
             <span class="ss-label">Stream {{ $artist->name }} on</span>
             <div class="ss-platforms">
               @foreach ($streams as $link)
-                <a href="{{ $link->url }}" target="_blank" rel="noopener" class="ss-platform">{{ str_replace('-', ' ', $link->platform) }}</a>
+                <a href="{{ route('go.link', $link) }}" class="ss-platform">{{ str_replace('-', ' ', $link->platform) }}</a>
               @endforeach
             </div>
           </div>
@@ -378,9 +379,14 @@
             <img src="{{ route('artist.qr', $artist) }}" alt="QR code for {{ $artist->name }}'s page" loading="lazy">
             <div>
               <p>Scan to open this page — perfect for posters, flyers and cover art.</p>
-              <a href="{{ route('artist.qr', $artist) }}" download="{{ $artist->slug }}-qr.png" class="ss-btn ss-btn--sm">
-                <i class="bi bi-download"></i> Download QR
-              </a>
+              <div class="d-flex gap-2 flex-wrap">
+                <a href="{{ route('artist.qr', $artist) }}" download="{{ $artist->slug }}-qr.png" class="ss-btn ss-btn--sm">
+                  <i class="bi bi-download"></i> Download QR
+                </a>
+                <a href="{{ route('artist.epk', $artist) }}" target="_blank" class="ss-btn ss-btn--sm">
+                  <i class="bi bi-file-earmark-text"></i> Press Kit (EPK)
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -57,6 +57,35 @@
     @endforeach
   </div>
 
+  <div class="card mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">My Audience (last 30 days)</h5>
+      <a href="{{ route('artist.epk', $artist) }}" target="_blank" class="btn btn-sm btn-outline-primary">
+        <i class="bx bx-file me-1"></i> My Press Kit (EPK)
+      </a>
+    </div>
+    <div class="card-body">
+      <div class="row g-4">
+        <div class="col-6 col-md-3">
+          <h3 class="mb-0">{{ number_format($analytics['views_30']) }}</h3>
+          <small class="text-muted">Page views (30 days)</small>
+        </div>
+        <div class="col-6 col-md-3">
+          <h3 class="mb-0">{{ number_format($analytics['views_total']) }}</h3>
+          <small class="text-muted">Page views (all time)</small>
+        </div>
+        <div class="col-6 col-md-3">
+          <h3 class="mb-0">{{ number_format($analytics['clicks_30']) }}</h3>
+          <small class="text-muted">Link clicks (30 days)</small>
+        </div>
+        <div class="col-6 col-md-3">
+          <h3 class="mb-0 text-capitalize">{{ str_replace('-', ' ', $analytics['top_platform'] ?? '—') }}</h3>
+          <small class="text-muted">Top platform</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="card">
     <div class="card-header"><h5 class="mb-0">Quick Tips</h5></div>
     <div class="card-body">

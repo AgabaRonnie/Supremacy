@@ -36,6 +36,10 @@ Route::post('/fanclub/{plan}', [App\Http\Controllers\front\CheckoutController::c
 // Payment gateway webhooks (stubs until keys are configured)
 Route::post('/webhooks/{gateway}', [App\Http\Controllers\front\CheckoutController::class, 'webhook'])->name('payments.webhook');
 
+// Click-tracked link redirects (per-artist analytics)
+Route::get('/go/link/{link}', [App\Http\Controllers\front\TrackingController::class, 'link'])->name('go.link');
+Route::get('/go/track/{track}/{platform}', [App\Http\Controllers\front\TrackingController::class, 'track'])->name('go.track');
+
 // NOTE: The artist micro-site route (/{artist-slug}) is registered at the very
 // bottom of this file so it never shadows other routes.
 
@@ -279,6 +283,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
 Route::get('/{artist:slug}/qr', [App\Http\Controllers\front\ArtistController::class, 'qr'])
   ->where('artist', '[a-z0-9\-]+')
   ->name('artist.qr');
+
+Route::get('/{artist:slug}/epk', [App\Http\Controllers\front\ArtistController::class, 'epk'])
+  ->where('artist', '[a-z0-9\-]+')
+  ->name('artist.epk');
+
+// Smart link: one shareable page per song, all platforms on it
+Route::get('/{artist:slug}/{track:slug}', [App\Http\Controllers\front\ArtistController::class, 'smartlink'])
+  ->where(['artist' => '[a-z0-9\-]+', 'track' => '[a-z0-9\-]+'])
+  ->scopeBindings()
+  ->name('track.smartlink');
 
 Route::get('/{artist:slug}', [App\Http\Controllers\front\ArtistController::class, 'show'])
   ->where('artist', '[a-z0-9\-]+')

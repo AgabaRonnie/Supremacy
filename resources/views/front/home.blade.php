@@ -73,20 +73,23 @@
       <div class="ss-container">
         <div class="row align-items-center g-5">
           <div class="col-md-5 reveal">
-            <div class="ss-outnow__cover">
+            <a href="{{ route('track.smartlink', [$latestRelease->artist, $latestRelease]) }}" class="ss-outnow__cover d-block">
               <img src="{{ $latestRelease->cover_url }}" alt="{{ $latestRelease->title }} — {{ $latestRelease->artist->name }}" loading="lazy">
-            </div>
+            </a>
           </div>
           <div class="col-md-7 reveal">
             <span class="ss-label">Out Now</span>
-            <h2 class="ss-outnow__title">{{ $latestRelease->title }}</h2>
+            <h2 class="ss-outnow__title">
+              <a href="{{ route('track.smartlink', [$latestRelease->artist, $latestRelease]) }}">{{ $latestRelease->title }}</a>
+            </h2>
             <p class="ss-outnow__artist">{{ $latestRelease->artist->name }}
               @if ($latestRelease->release_date) · {{ $latestRelease->release_date->format('F Y') }} @endif
             </p>
             <div class="ss-platforms">
               @foreach ($latestRelease->links ?? [] as $platform => $url)
-                <a href="{{ $url }}" target="_blank" rel="noopener" class="ss-platform">{{ str_replace('-', ' ', $platform) }}</a>
+                <a href="{{ route('go.track', [$latestRelease, $platform]) }}" class="ss-platform">{{ str_replace('-', ' ', $platform) }}</a>
               @endforeach
+              <a href="{{ route('track.smartlink', [$latestRelease->artist, $latestRelease]) }}" class="ss-platform"><strong>+ All Platforms</strong></a>
             </div>
           </div>
         </div>

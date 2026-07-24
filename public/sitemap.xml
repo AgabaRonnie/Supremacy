@@ -2,63 +2,105 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
         <loc>http://localhost/Supremacy/public</loc>
-        <lastmod>2026-07-24T04:25:43+00:00</lastmod>
+        <lastmod>2026-07-24T05:35:54+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
             </url>
     <url>
         <loc>http://localhost/Supremacy/public/artists</loc>
-        <lastmod>2026-07-24T04:25:43+00:00</lastmod>
+        <lastmod>2026-07-24T05:35:54+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
         <loc>http://localhost/Supremacy/public/studio</loc>
-        <lastmod>2026-07-24T04:25:43+00:00</lastmod>
+        <lastmod>2026-07-24T05:35:54+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/Supremacy/public/services</loc>
-        <lastmod>2026-07-24T04:25:43+00:00</lastmod>
+        <lastmod>2026-07-24T05:35:54+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/Supremacy/public/events</loc>
-        <lastmod>2026-07-24T04:25:43+00:00</lastmod>
+        <lastmod>2026-07-24T05:35:54+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>http://localhost/Supremacy/public/news</loc>
-        <lastmod>2026-07-24T04:25:43+00:00</lastmod>
+        <lastmod>2026-07-24T05:35:54+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>http://localhost/Supremacy/public/about</loc>
-        <lastmod>2026-07-24T04:25:43+00:00</lastmod>
+        <lastmod>2026-07-24T05:35:54+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
             </url>
     <url>
         <loc>http://localhost/Supremacy/public/contact</loc>
-        <lastmod>2026-07-24T04:25:43+00:00</lastmod>
+        <lastmod>2026-07-24T05:35:54+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
             </url>
     <url>
         <loc>http://localhost/Supremacy/public/join</loc>
-        <lastmod>2026-07-24T04:25:43+00:00</lastmod>
+        <lastmod>2026-07-24T05:35:54+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
             </url>
     <url>
         <loc>http://localhost/Supremacy/public/rinex-pro</loc>
-        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <lastmod>2026-07-24T05:02:55+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
+            </url>
+    <url>
+        <loc>http://localhost/Supremacy/public/rinex-pro/city-lights</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>http://localhost/Supremacy/public/rinex-pro/fire-tonight</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>http://localhost/Supremacy/public/rinex-pro/omukwano</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>http://localhost/Supremacy/public/rinex-pro/sikika</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>http://localhost/Supremacy/public/rinex-pro/till-morning</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>http://localhost/Supremacy/public/rinex-pro/one-call</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>http://localhost/Supremacy/public/rinex-pro/nankulabye-anthem</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
         <loc>http://localhost/Supremacy/public/voltag-music</loc>
@@ -67,16 +109,76 @@
         <priority>0.9</priority>
             </url>
     <url>
+        <loc>http://localhost/Supremacy/public/voltag-music/plug-in</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>http://localhost/Supremacy/public/voltag-music/high-voltage</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>http://localhost/Supremacy/public/voltag-music/current</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>http://localhost/Supremacy/public/voltag-music/amplify</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>http://localhost/Supremacy/public/voltag-music/shockwave</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>http://localhost/Supremacy/public/voltag-music/grid</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
         <loc>http://localhost/Supremacy/public/ronnie-peace</loc>
         <lastmod>2026-07-24T03:27:33+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
             </url>
     <url>
+        <loc>http://localhost/Supremacy/public/ronnie-peace/peace-of-mind</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>http://localhost/Supremacy/public/ronnie-peace/nkwagala</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
+        <loc>http://localhost/Supremacy/public/ronnie-peace/sunrise</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+            </url>
+    <url>
         <loc>http://localhost/Supremacy/public/trekka-man</loc>
         <lastmod>2026-07-24T03:27:33+00:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
+            </url>
+    <url>
+        <loc>http://localhost/Supremacy/public/trekka-man/trekk-talk-freestyle</loc>
+        <lastmod>2026-07-24T03:27:33+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
             </url>
     <url>
         <loc>http://localhost/Supremacy/public/news/supremacy-studios-signs-trekka-man</loc>

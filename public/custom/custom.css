@@ -1354,3 +1354,134 @@ img { max-width: 100%; }
 
 .as-qr img { width: 128px; height: 128px; background: #fff; padding: 6px; flex-shrink: 0; }
 .as-qr p { color: var(--ss-gray); font-size: 0.88rem; margin-bottom: 0.7rem; }
+
+/* ============================================================
+   SMART LINK PAGE (.sl-*) — one song, every platform
+============================================================ */
+
+.sl-page {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.2rem;
+  position: relative;
+  isolation: isolate;
+  background-size: cover;
+  background-position: center;
+}
+
+.sl-page__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(10, 10, 10, 0.82);
+  backdrop-filter: blur(28px) saturate(0.4);
+  -webkit-backdrop-filter: blur(28px) saturate(0.4);
+}
+
+.sl-card {
+  width: min(420px, 100%);
+  background: rgba(17, 17, 17, 0.85);
+  border: 1px solid var(--ss-border-strong);
+  padding: 1.6rem;
+  text-align: center;
+}
+
+.sl-card__artist-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ss-gray);
+  margin-bottom: 1.1rem;
+  transition: color 0.3s;
+}
+
+.sl-card__artist-link:hover { color: var(--ss-white); }
+.sl-card__artist-link img { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; }
+
+.sl-card__cover {
+  aspect-ratio: 1;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+  background: var(--ss-panel);
+}
+
+.sl-card__cover img { width: 100%; height: 100%; object-fit: cover; }
+
+.sl-card__title {
+  font-family: var(--ss-display);
+  font-weight: 600;
+  font-size: 1.7rem;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.sl-card__meta {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ss-gray);
+  margin-bottom: 1.4rem;
+}
+
+.sl-card__platforms { display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1.2rem; }
+
+.sl-platform {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid var(--ss-border-strong);
+  padding: 0.85rem 1.1rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: background 0.3s var(--ss-ease), color 0.3s var(--ss-ease), border-color 0.3s;
+}
+
+.sl-platform i { margin-right: 0.4rem; }
+
+.sl-platform__play {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ss-gray);
+  transition: color 0.3s;
+}
+
+.sl-platform:hover { background: var(--ss-white); border-color: var(--ss-white); color: var(--ss-black); }
+.sl-platform:hover .sl-platform__play { color: var(--ss-black); }
+
+.sl-platform--buy { border-style: dashed; }
+
+.sl-card__share {
+  background: transparent;
+  border: 0;
+  color: var(--ss-gray);
+  font-family: var(--ss-text);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.sl-card__share:hover { color: var(--ss-white); }
+
+.sl-card__sig { margin: 1.1rem 0 0; }
+
+.sl-card__sig a {
+  font-family: var(--ss-display);
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  color: var(--ss-dim);
+  transition: color 0.3s;
+}
+
+.sl-card__sig a:hover { color: var(--ss-white); }
