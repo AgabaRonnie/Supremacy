@@ -25,6 +25,17 @@ Route::get('/join', [App\Http\Controllers\front\PageController::class, 'join'])-
 Route::post('/studio/book', [App\Http\Controllers\front\FormController::class, 'bookStudio'])->name('studio.book');
 Route::post('/join/submit', [App\Http\Controllers\front\FormController::class, 'submitDemo'])->name('demo.submit');
 
+// Commerce: buy tracks/albums/merch, fan club subscriptions
+Route::get('/buy/{type}/{id}', [App\Http\Controllers\front\CheckoutController::class, 'checkout'])
+  ->whereIn('type', ['track', 'album', 'product'])->name('checkout');
+Route::post('/buy', [App\Http\Controllers\front\CheckoutController::class, 'placeOrder'])->name('checkout.place');
+Route::get('/order/{order:reference}', [App\Http\Controllers\front\CheckoutController::class, 'orderShow'])->name('order.show');
+Route::get('/fanclub/{plan}', [App\Http\Controllers\front\CheckoutController::class, 'joinClub'])->name('fanclub.join');
+Route::post('/fanclub/{plan}', [App\Http\Controllers\front\CheckoutController::class, 'subscribe'])->name('fanclub.subscribe');
+
+// Payment gateway webhooks (stubs until keys are configured)
+Route::post('/webhooks/{gateway}', [App\Http\Controllers\front\CheckoutController::class, 'webhook'])->name('payments.webhook');
+
 // NOTE: The artist micro-site route (/{artist-slug}) is registered at the very
 // bottom of this file so it never shadows other routes.
 
@@ -223,6 +234,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('videos', \App\Http\Controllers\admin\VideoController::class)->except(['show']);
     Route::resource('plans', \App\Http\Controllers\admin\PlanController::class)->except(['show'])
       ->parameters(['plans' => 'plan']);
+
+// Commerce (index shared: admins see all, artists see their own; writes are admin-only in-controller)
+    Route::get('/orders', [\App\Http\Controllers\admin\OrderController::class, 'index'])->name('orders.index');
+    Route::put('/orders/{order}/status', [\App\Http\Controllers\admin\OrderController::class, 'updateStatus'])->name('orders.status');
+    Route::delete('/orders/{order}', [\App\Http\Controllers\admin\OrderController::class, 'destroy'])->name('orders.destroy');
+
+    Route::get('/subscriptions', [\App\Http\Controllers\admin\FanSubscriptionController::class, 'index'])->name('subscriptions.index');
+    Route::put('/subscriptions/{subscription}/status', [\App\Http\Controllers\admin\FanSubscriptionController::class, 'updateStatus'])->name('subscriptions.status');
+    Route::delete('/subscriptions/{subscription}', [\App\Http\Controllers\admin\FanSubscriptionController::class, 'destroy'])->name('subscriptions.destroy');
 
 // Artist portal — own profile
     Route::get('/portal/profile', [\App\Http\Controllers\admin\ProfileController::class, 'edit'])->name('portal.profile');

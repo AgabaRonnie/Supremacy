@@ -31,6 +31,7 @@
     ['Upcoming Events', $stats['upcoming_events'], 'bx-calendar-event', route('admin.events.index')],
     ['Pending Bookings', $stats['pending_bookings'], 'bx-calendar-check', route('admin.bookings.index')],
     ['New Demos', $stats['new_demos'], 'bx-envelope', route('admin.demos.index')],
+    ['Pending Orders', $stats['pending_orders'], 'bx-cart', route('admin.orders.index')],
   ] as [$label, $count, $icon, $url])
     <div class="col-6 col-md-4 col-xl-3">
       <a href="{{ $url }}" class="card h-100 text-decoration-none">

@@ -139,6 +139,9 @@
                     @if ($album->price) · UGX {{ number_format($album->price) }} @endif
                   </p>
                   <div class="as-album__links">
+                    @if ($album->price)
+                      <a href="{{ route('checkout', ['type' => 'album', 'id' => $album->id]) }}"><strong>Buy</strong></a>
+                    @endif
                     @foreach (collect($album->links)->take(3) as $platform => $url)
                       <a href="{{ $url }}" target="_blank" rel="noopener">{{ str_replace('-', ' ', $platform) }}</a>
                     @endforeach
@@ -167,6 +170,9 @@
                 @endif
               </span>
               <span class="as-track__links">
+                @if (!$track->is_free && $track->price)
+                  <a href="{{ route('checkout', ['type' => 'track', 'id' => $track->id]) }}"><strong>Buy</strong></a>
+                @endif
                 @foreach (collect($track->links)->take(4) as $platform => $url)
                   <a href="{{ $url }}" target="_blank" rel="noopener">{{ str_replace('-', ' ', $platform) }}</a>
                 @endforeach
@@ -226,7 +232,8 @@
                   <h3 class="as-album__title">{{ $product->name }}</h3>
                   <p class="as-album__meta">UGX {{ number_format($product->price) }}</p>
                   <div class="as-album__links">
-                    <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', \App\Models\SiteSetting::get('whatsapp')) }}?text={{ urlencode('Hello Supremacy Studios, I want to order: ' . $product->name . ' (' . $artist->name . ')') }}" target="_blank" rel="noopener">Order on WhatsApp</a>
+                    <a href="{{ route('checkout', ['type' => 'product', 'id' => $product->id]) }}"><strong>Buy</strong></a>
+                    <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', \App\Models\SiteSetting::get('whatsapp')) }}?text={{ urlencode('Hello Supremacy Studios, I want to order: ' . $product->name . ' (' . $artist->name . ')') }}" target="_blank" rel="noopener">WhatsApp</a>
                   </div>
                 </div>
               </div>
@@ -283,7 +290,7 @@
                       <li><i class="bi bi-check2"></i> {{ $perk }}</li>
                     @endforeach
                   </ul>
-                  <button class="ss-btn w-100 justify-content-center" disabled title="Coming soon">Join — Coming Soon</button>
+                  <a href="{{ route('fanclub.join', $plan) }}" class="ss-btn w-100 justify-content-center">Join {{ $plan->name }}</a>
                 </div>
               </div>
             @endforeach

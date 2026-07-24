@@ -57,6 +57,21 @@
       "slug": "plans"
     },
     {
+      "menuHeader": "Commerce"
+    },
+    {
+      "url": "/admin/orders",
+      "name": "Orders",
+      "icon": "menu-icon tf-icons bx bx-cart",
+      "slug": "orders"
+    },
+    {
+      "url": "/admin/subscriptions",
+      "name": "Fan Subscriptions",
+      "icon": "menu-icon tf-icons bx bx-heart",
+      "slug": "subscriptions"
+    },
+    {
       "menuHeader": "Website"
     },
     {

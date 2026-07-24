@@ -42,6 +42,7 @@ class HomeController extends Controller
                 'upcoming_events' => Event::upcoming()->count(),
                 'pending_bookings' => StudioBooking::where('status', 'pending')->count(),
                 'new_demos' => DemoSubmission::where('status', 'new')->count(),
+                'pending_orders' => \App\Models\Order::where('status', 'pending')->count(),
             ];
 
             $recentBookings = StudioBooking::orderByDesc('created_at')->take(5)->get();

@@ -53,6 +53,21 @@
       "name": "My Fan Club",
       "icon": "menu-icon tf-icons bx bx-diamond",
       "slug": "plans"
+    },
+    {
+      "menuHeader": "My Earnings"
+    },
+    {
+      "url": "/admin/orders",
+      "name": "My Orders",
+      "icon": "menu-icon tf-icons bx bx-cart",
+      "slug": "orders"
+    },
+    {
+      "url": "/admin/subscriptions",
+      "name": "My Subscribers",
+      "icon": "menu-icon tf-icons bx bx-heart",
+      "slug": "subscriptions"
     }
   ]
 }
