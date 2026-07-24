@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             ['email' => 'admin@supremacystudios.com'],
             [
                 'name' => 'Supremacy Admin',
-                'password' => Hash::make('password'),
+                'password' => Hash::make('Supremacy@2026'),
                 'role' => 'admin',
             ]
         );

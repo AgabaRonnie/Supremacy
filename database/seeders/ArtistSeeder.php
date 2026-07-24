@@ -32,7 +32,7 @@ class ArtistSeeder extends Seeder
                 'tagline' => 'The sound of the new Kampala.',
                 'genre' => 'Afrobeat / Dancehall',
                 'bio' => "Rinex Pro is an Afrobeat and dancehall artist signed to Supremacy Studios, Kampala. Known for high-energy performances and melodies that fuse East African rhythm with modern Afro-pop, Rinex Pro has been building a loyal following across Uganda and beyond.\n\nSince joining Supremacy Studios, Rinex Pro has released a string of singles and headlined shows around Kampala, steadily becoming one of the most exciting new voices on the scene.",
-                'photo' => $img('photo-1506794778202-cad84cf45f1d', 900),
+                'photo' => 'uploads/artists/rinex-pro.jpg',
                 'cover_image' => $img('photo-1493225457124-a3eb161ffa5f', 1800),
                 'gallery' => [$img('photo-1470225620780-dba8ba36b745'), $img('photo-1516450360452-9312f5e86fc7'), $img('photo-1514320291840-2e0a9bf2a9ae')],
                 'joined_year' => 2022,
@@ -83,7 +83,7 @@ class ArtistSeeder extends Seeder
                 'tagline' => 'Electric Afro-fusion, engineered at Supremacy.',
                 'genre' => 'Afro-Electronic / Producer',
                 'bio' => "Voltag Music is a producer and performing artist blending Afro rhythms with electronic energy. As one of the in-house creative forces at Supremacy Studios, Voltag has produced records for artists across the label while building a solo catalogue of genre-bending releases.\n\nWhen not on stage, Voltag is behind the console at the Supremacy recording studio in Nankulabye, shaping the label's signature sound.",
-                'photo' => $img('photo-1507003211169-0a1dd7228f2d', 900),
+                'photo' => 'uploads/artists/voltag-music.jpg',
                 'cover_image' => $img('photo-1470225620780-dba8ba36b745', 1800),
                 'gallery' => [$img('photo-1524650359799-842906ca1c06'), $img('photo-1519892300165-cb5542fb47c7')],
                 'joined_year' => 2021,
@@ -126,7 +126,7 @@ class ArtistSeeder extends Seeder
                 'tagline' => 'Soul, truth and melody.',
                 'genre' => 'R&B / Soul',
                 'bio' => "Ronnie Peace is an R&B and soul singer-songwriter whose music speaks about love, hope and everyday life in Uganda. With a voice that critics call 'honey over fire', Ronnie Peace writes and records at Supremacy Studios, where every song is crafted to last.\n\nRonnie's live acoustic sessions have become a signature — intimate, honest and unforgettable.",
-                'photo' => $img('photo-1500648767791-00dcc994a43e', 900),
+                'photo' => 'uploads/artists/ronnie-peace.jpg',
                 'cover_image' => $img('photo-1511671782779-c97d3d27a1d4', 1800),
                 'gallery' => [$img('photo-1487180144351-b8472da7d491'), $img('photo-1598488035139-bdbb2231ce04')],
                 'joined_year' => 2023,
@@ -163,7 +163,7 @@ class ArtistSeeder extends Seeder
                 'tagline' => 'Straight from the streets, straight to the top.',
                 'genre' => 'Hip-Hop / Drill',
                 'bio' => "Trekka Man is the rawest pen at Supremacy Studios — a hip-hop and drill artist telling the real stories of Kampala's streets. The newest signing on the roster, Trekka Man is currently locked in the studio working on his debut project.\n\nKeep your eyes here — the first drop is loading.",
-                'photo' => $img('photo-1531427186611-ecfd6d936c79', 900),
+                'photo' => 'uploads/artists/trekka-man.jpg',
                 'cover_image' => $img('photo-1508700115892-45ecd05ae2ad', 1800),
                 'gallery' => [],
                 'joined_year' => 2026,
@@ -311,12 +311,14 @@ class ArtistSeeder extends Seeder
                 ]);
             }
 
-            // Artist portal login (they can change the password later).
+            // Artist portal login. Default password = stage name (lowercase, no
+            // spaces) + 2026, e.g. "rinexpro2026". Artists change it after handover.
+            $defaultPassword = Str::lower(str_replace(' ', '', $data['name'])) . '2026';
             User::firstOrCreate(
                 ['email' => Str::slug($data['name'], '') . '@supremacystudios.com'],
                 [
                     'name' => $data['name'],
-                    'password' => Hash::make('password'),
+                    'password' => Hash::make($defaultPassword),
                     'role' => 'artist',
                     'artist_id' => $artist->id,
                 ]
