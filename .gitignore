@@ -14,11 +14,7 @@ yarn-error.log
 /.vscode
 /public/css
 /public/js
-/public/mix-manifest.json
-# But not these files...
-!/public/assets/*
-/public/assets/js
-/public/assets/css
-/public/assets/vendor
+# Built template assets ARE committed on purpose (they were lost once when
+# duplicating the project because they used to be ignored).
 /.env
 /public/google_drive/

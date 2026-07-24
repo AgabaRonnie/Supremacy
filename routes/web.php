@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\front\HomeController::class, 'index']);
 Route::get('/home', [App\Http\Controllers\front\HomeController::class, 'index']);
 
+// NOTE: The artist micro-site route (/{artist-slug}) is registered at the very
+// bottom of this file so it never shadows other routes.
+
 /*
 |--------------------------------------------------------------------------
 | Admin Authentication
@@ -199,6 +202,19 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/index', [\App\Http\Controllers\HomeController::class, 'index']);
     Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+// Supremacy Studios management
+    Route::resource('artists', \App\Http\Controllers\admin\ArtistController::class)->except(['show']);
+
   });
 
 });
+
+/*
+|--------------------------------------------------------------------------
+| Artist Micro-site (keep LAST — catches /{artist-slug})
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/{artist:slug}', [App\Http\Controllers\front\ArtistController::class, 'show'])
+  ->where('artist', '[a-z0-9\-]+')
+  ->name('artist.show');

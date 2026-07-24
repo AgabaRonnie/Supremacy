@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('role')->default('artist'); // admin | artist
+            $table->unsignedBigInteger('artist_id')->nullable(); // set when role = artist
             $table->rememberToken();
             $table->timestamps();
         });

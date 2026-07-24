@@ -5,6 +5,12 @@
       "name": "Dashboard",
       "icon": "menu-icon tf-icons bx bx-home-circle",
       "slug": "dashboard"
+    },
+    {
+      "url": "/admin/artists",
+      "name": "Artists",
+      "icon": "menu-icon tf-icons bx bx-microphone",
+      "slug": "artists"
     }
   ]
 }

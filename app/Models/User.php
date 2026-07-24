@@ -21,7 +21,24 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'artist_id',
     ];
+
+    public function artist()
+    {
+        return $this->belongsTo(Artist::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isArtist()
+    {
+        return $this->role === 'artist';
+    }
 
     /**
      * The attributes that should be hidden for serialization.

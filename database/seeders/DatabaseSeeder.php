@@ -20,7 +20,15 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Supremacy Admin',
                 'password' => Hash::make('password'),
+                'role' => 'admin',
             ]
         );
+
+        $this->call([
+            ArtistSeeder::class,
+            ServiceSeeder::class,
+            NewsSeeder::class,
+            SiteSettingSeeder::class,
+        ]);
     }
 }
