@@ -1,0 +1,23 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+
+
+.header-banner {
+  background-color: $primary;
+  padding: 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.card-custom {
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
