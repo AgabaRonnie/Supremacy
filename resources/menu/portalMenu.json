@@ -1,0 +1,58 @@
+{
+  "menu": [
+    {
+      "url": "/admin",
+      "name": "Dashboard",
+      "icon": "menu-icon tf-icons bx bx-home-circle",
+      "slug": "dashboard"
+    },
+    {
+      "menuHeader": "My Page"
+    },
+    {
+      "url": "/admin/portal/profile",
+      "name": "My Profile",
+      "icon": "menu-icon tf-icons bx bx-user-circle",
+      "slug": "portal-profile"
+    },
+    {
+      "menuHeader": "My Content"
+    },
+    {
+      "url": "/admin/albums",
+      "name": "My Albums",
+      "icon": "menu-icon tf-icons bx bx-album",
+      "slug": "albums"
+    },
+    {
+      "url": "/admin/tracks",
+      "name": "My Tracks",
+      "icon": "menu-icon tf-icons bx bx-music",
+      "slug": "tracks"
+    },
+    {
+      "url": "/admin/products",
+      "name": "My Merch",
+      "icon": "menu-icon tf-icons bx bx-shopping-bag",
+      "slug": "products"
+    },
+    {
+      "url": "/admin/events",
+      "name": "My Shows",
+      "icon": "menu-icon tf-icons bx bx-calendar-event",
+      "slug": "events"
+    },
+    {
+      "url": "/admin/videos",
+      "name": "My Videos",
+      "icon": "menu-icon tf-icons bx bx-video",
+      "slug": "videos"
+    },
+    {
+      "url": "/admin/plans",
+      "name": "My Fan Club",
+      "icon": "menu-icon tf-icons bx bx-diamond",
+      "slug": "plans"
+    }
+  ]
+}

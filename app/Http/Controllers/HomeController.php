@@ -2,8 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
+use App\Models\Artist;
+use App\Models\DemoSubmission;
+use App\Models\Event;
+use App\Models\Product;
+use App\Models\StudioBooking;
+use App\Models\Track;
+use App\Models\Video;
 use Illuminate\Http\Request;
-
 
 class HomeController extends Controller
 {
@@ -18,12 +25,42 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Role-aware dashboard: label stats for admins, own stats for artists.
      *
      * @return \Illuminate\Contracts\View\View
      */
     public function index()
     {
-        return view('admin.home');
+        $user = auth()->user();
+
+        if ($user->isAdmin()) {
+            $stats = [
+                'artists' => Artist::count(),
+                'tracks' => Track::count(),
+                'albums' => Album::count(),
+                'products' => Product::count(),
+                'upcoming_events' => Event::upcoming()->count(),
+                'pending_bookings' => StudioBooking::where('status', 'pending')->count(),
+                'new_demos' => DemoSubmission::where('status', 'new')->count(),
+            ];
+
+            $recentBookings = StudioBooking::orderByDesc('created_at')->take(5)->get();
+            $recentDemos = DemoSubmission::orderByDesc('created_at')->take(5)->get();
+
+            return view('admin.home', compact('stats', 'recentBookings', 'recentDemos'));
+        }
+
+        // Artist portal dashboard
+        $artist = $user->artist;
+
+        $stats = $artist ? [
+            'tracks' => Track::where('artist_id', $artist->id)->count(),
+            'albums' => Album::where('artist_id', $artist->id)->count(),
+            'products' => Product::where('artist_id', $artist->id)->count(),
+            'videos' => Video::where('artist_id', $artist->id)->count(),
+            'upcoming_events' => Event::where('artist_id', $artist->id)->upcoming()->count(),
+        ] : [];
+
+        return view('admin.portal.home', compact('artist', 'stats'));
     }
 }

@@ -215,8 +215,36 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/index', [\App\Http\Controllers\HomeController::class, 'index']);
     Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Supremacy Studios management
-    Route::resource('artists', \App\Http\Controllers\admin\ArtistController::class)->except(['show']);
+// Supremacy Studios management — shared modules (admins: all artists; artist users: own content only)
+    Route::resource('albums', \App\Http\Controllers\admin\AlbumController::class)->except(['show']);
+    Route::resource('tracks', \App\Http\Controllers\admin\TrackController::class)->except(['show']);
+    Route::resource('products', \App\Http\Controllers\admin\ProductController::class)->except(['show']);
+    Route::resource('events', \App\Http\Controllers\admin\EventController::class)->except(['show']);
+    Route::resource('videos', \App\Http\Controllers\admin\VideoController::class)->except(['show']);
+    Route::resource('plans', \App\Http\Controllers\admin\PlanController::class)->except(['show'])
+      ->parameters(['plans' => 'plan']);
+
+// Artist portal — own profile
+    Route::get('/portal/profile', [\App\Http\Controllers\admin\ProfileController::class, 'edit'])->name('portal.profile');
+    Route::put('/portal/profile', [\App\Http\Controllers\admin\ProfileController::class, 'update'])->name('portal.profile.update');
+
+// Label administrators only
+    Route::middleware('admin')->group(function () {
+      Route::resource('artists', \App\Http\Controllers\admin\ArtistController::class)->except(['show']);
+      Route::resource('news', \App\Http\Controllers\admin\NewsController::class)->except(['show']);
+      Route::resource('services', \App\Http\Controllers\admin\ServiceController::class)->except(['show']);
+
+      Route::get('/bookings', [\App\Http\Controllers\admin\BookingController::class, 'index'])->name('bookings.index');
+      Route::put('/bookings/{booking}/status', [\App\Http\Controllers\admin\BookingController::class, 'updateStatus'])->name('bookings.status');
+      Route::delete('/bookings/{booking}', [\App\Http\Controllers\admin\BookingController::class, 'destroy'])->name('bookings.destroy');
+
+      Route::get('/demos', [\App\Http\Controllers\admin\DemoController::class, 'index'])->name('demos.index');
+      Route::put('/demos/{demo}/status', [\App\Http\Controllers\admin\DemoController::class, 'updateStatus'])->name('demos.status');
+      Route::delete('/demos/{demo}', [\App\Http\Controllers\admin\DemoController::class, 'destroy'])->name('demos.destroy');
+
+      Route::get('/settings', [\App\Http\Controllers\admin\SettingController::class, 'edit'])->name('settings.edit');
+      Route::put('/settings', [\App\Http\Controllers\admin\SettingController::class, 'update'])->name('settings.update');
+    });
 
   });
 

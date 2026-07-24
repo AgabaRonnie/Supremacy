@@ -7,10 +7,93 @@
       "slug": "dashboard"
     },
     {
+      "menuHeader": "The Label"
+    },
+    {
       "url": "/admin/artists",
       "name": "Artists",
       "icon": "menu-icon tf-icons bx bx-microphone",
       "slug": "artists"
+    },
+    {
+      "name": "Music",
+      "icon": "menu-icon tf-icons bx bx-music",
+      "slug": "music",
+      "submenu": [
+        {
+          "url": "/admin/albums",
+          "name": "Albums",
+          "slug": "albums"
+        },
+        {
+          "url": "/admin/tracks",
+          "name": "Tracks",
+          "slug": "tracks"
+        }
+      ]
+    },
+    {
+      "url": "/admin/products",
+      "name": "Merch",
+      "icon": "menu-icon tf-icons bx bx-shopping-bag",
+      "slug": "products"
+    },
+    {
+      "url": "/admin/events",
+      "name": "Events",
+      "icon": "menu-icon tf-icons bx bx-calendar-event",
+      "slug": "events"
+    },
+    {
+      "url": "/admin/videos",
+      "name": "Videos",
+      "icon": "menu-icon tf-icons bx bx-video",
+      "slug": "videos"
+    },
+    {
+      "url": "/admin/plans",
+      "name": "Fan Club Plans",
+      "icon": "menu-icon tf-icons bx bx-diamond",
+      "slug": "plans"
+    },
+    {
+      "menuHeader": "Website"
+    },
+    {
+      "url": "/admin/news",
+      "name": "News",
+      "icon": "menu-icon tf-icons bx bx-news",
+      "slug": "news"
+    },
+    {
+      "url": "/admin/services",
+      "name": "Services",
+      "icon": "menu-icon tf-icons bx bx-briefcase-alt-2",
+      "slug": "services"
+    },
+    {
+      "menuHeader": "Inbox"
+    },
+    {
+      "url": "/admin/bookings",
+      "name": "Studio Bookings",
+      "icon": "menu-icon tf-icons bx bx-calendar-check",
+      "slug": "bookings"
+    },
+    {
+      "url": "/admin/demos",
+      "name": "Demo Submissions",
+      "icon": "menu-icon tf-icons bx bx-envelope",
+      "slug": "demos"
+    },
+    {
+      "menuHeader": "System"
+    },
+    {
+      "url": "/admin/settings",
+      "name": "Site Settings",
+      "icon": "menu-icon tf-icons bx bx-cog",
+      "slug": "settings"
     }
   ]
 }
