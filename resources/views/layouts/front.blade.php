@@ -36,6 +36,10 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="@yield('canonical', url()->current())">
 
+  <!-- Fonts: Clash Display (display) + Satoshi (text) -->
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
@@ -43,11 +47,35 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ asset('custom/custom.css') }}">
 
+  <!-- Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Supremacy Studios",
+    "description": "Music label and recording studio in Kampala, Uganda.",
+    "url": "{{ url('/') }}",
+    "logo": "{{ asset('img/final_logo.JPG') }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Makerere Hill Road, Nankulabye",
+      "addressLocality": "Kampala",
+      "addressCountry": "UG"
+    }
+  }
+  </script>
+
   @stack('meta')
   @stack('styles')
 </head>
 
-<body>
+<body class="ss-body">
+
+  <!-- Preloader -->
+  <div class="ss-preloader" id="ssPreloader" aria-hidden="true">
+    <span class="ss-preloader__word">SUPREMACY</span>
+  </div>
+
   <!-- Navigation -->
   @include('layouts.partials.navbar')
 

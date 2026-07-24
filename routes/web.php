@@ -12,6 +12,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\front\HomeController::class, 'index']);
 Route::get('/home', [App\Http\Controllers\front\HomeController::class, 'index']);
 
+Route::get('/artists', [App\Http\Controllers\front\PageController::class, 'artists'])->name('front.artists');
+Route::get('/studio', [App\Http\Controllers\front\PageController::class, 'studio'])->name('front.studio');
+Route::get('/services', [App\Http\Controllers\front\PageController::class, 'services'])->name('front.services');
+Route::get('/events', [App\Http\Controllers\front\PageController::class, 'events'])->name('front.events');
+Route::get('/news', [App\Http\Controllers\front\PageController::class, 'news'])->name('front.news');
+Route::get('/news/{post:slug}', [App\Http\Controllers\front\PageController::class, 'newsShow'])->name('front.news.show');
+Route::get('/about', [App\Http\Controllers\front\PageController::class, 'about'])->name('front.about');
+Route::get('/contact', [App\Http\Controllers\front\PageController::class, 'contact'])->name('front.contact');
+Route::get('/join', [App\Http\Controllers\front\PageController::class, 'join'])->name('front.join');
+
+Route::post('/studio/book', [App\Http\Controllers\front\FormController::class, 'bookStudio'])->name('studio.book');
+Route::post('/join/submit', [App\Http\Controllers\front\FormController::class, 'submitDemo'])->name('demo.submit');
+
 // NOTE: The artist micro-site route (/{artist-slug}) is registered at the very
 // bottom of this file so it never shadows other routes.
 
